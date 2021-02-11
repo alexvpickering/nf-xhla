@@ -1,3 +1,10 @@
+ //  example:
+ // cat ../Clean/test/*_1.fq.gz > ../Clean/test/test_1.fq.gz
+ // cat ../Clean/test/*_2.fq.gz > ../Clean/test/test_2.fq.gz
+// nextflow run main.nf --reads "../Clean/test/test_{1,2}.fq.gz" --samplename test
+ 
+ 
+ 
  // Define the default parameters
 params.reads = ""
 params.outdir = "./results"
@@ -46,7 +53,7 @@ process index_bam {
 }
 
 process run_xhla {
-    publishDir "${params.outdir}/reports"
+    publishDir "${params.outdir}/reports", mode: 'copy'
 
     input:
 	file bamfile from bamfile_ch2
