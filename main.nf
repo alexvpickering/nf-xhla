@@ -32,7 +32,7 @@ process map_and_sort {
 	file "${params.samplename}.bam" into bamfile_ch1, bamfile_ch2
 	
 	"""
-	bwa mem -t 6 -M -R '@RG\\tID:${params.readgroup}\\tSM:${params.samplename}\\tPL:ILLUMINA' $params.reference $reads \
+	bwa-mem2 -t 6 -M -R '@RG\\tID:${params.readgroup}\\tSM:${params.samplename}\\tPL:ILLUMINA' $params.reference $reads \
 	| samtools sort -@6 -o ${params.samplename}.bam -
 	"""	
 }
