@@ -11,6 +11,7 @@ params.outdir = "./results"
 params.samplename = ""
 params.readgroup = "${params.samplename}"
 params.reference = "~/hg38/Homo_sapiens_assembly38.fasta"
+params.run_path = "/opt/bin/run.py"
 
 /*
  * Create the `read_pairs_ch` channel that emits tuples containing three elements:
@@ -64,7 +65,7 @@ process run_xhla {
 
     script:
     """
-    python /opt/bin/run.py \
+    python ${params.run_path} \
     --sample_id ${params.samplename} --input_bam_path $bamfile \
     --output_path ${params.samplename}
     """
