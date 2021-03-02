@@ -9,16 +9,17 @@
 #SBATCH --mail-type=FAIL                   # Type of email notification- BEGIN,END,FAIL,ALL
 #SBATCH --mail-user=alex_pickering@hms.harvard.edu   # Email to which notifications will be sent
 
+
 module load gcc/6.2.0 samtools/1.3.1 bwa/0.7.15 bedtools/2.26.0 R/4.0.1 java/jdk-1.8u112
 conda activate XHLA
 
 # get PID from command line
-PID="$1"
+PID="$@"
 data_dir="/n/scratch3/users/a/ap491/F20FTSUSAT1396_HUMooaR/Reads/Clean"
 ref_path="/n/scratch3/users/a/ap491/hg38/Homo_sapiens_assembly38.fasta"
 run_path="/home/ap491/HLA/bin/run.py"
 
-cd /n/scratch3/users/a/ap491/nf-xhla
+cd /n/scratch3/users/a/ap491/F20FTSUSAT1396_HUMooaR/Reads/nf-xhla
 
 nextflow run main.nf \
  --reads "$data_dir/$PID/PID${PID}_{1,2}.fq.gz" \
