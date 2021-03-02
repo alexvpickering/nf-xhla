@@ -1,8 +1,7 @@
  //  example:
  // cat ../Clean/test/*_1.fq.gz > ../Clean/test/test_1.fq.gz
  // cat ../Clean/test/*_2.fq.gz > ../Clean/test/test_2.fq.gz
-// nextflow run main.nf --reads "../Clean/test/test_{1,2}.fq.gz" --samplename test
-// nextflow run main.nf --reads "$(pwd)/../F20FTSUSAT1396_HUMooaR/Reads/Clean/8295/PID8295_{1,2}.fq.gz" --samplename PID8295 --reference "$(pwd)/../hg38/Homo_sapiens_assembly38.fasta" --run_path "/home/ap491/HLA/bin/run.py"
+// nextflow run -profile docker main.nf --reads "../Clean/test/test_{1,2}.fq.gz" --samplename test
  
  
  
